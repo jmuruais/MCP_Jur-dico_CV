@@ -1,4 +1,4 @@
-"""Despliegue local sobre una instalación existente. No imprime configuración ni secretos."""
+"""Despliegue local en CT 105. No imprime configuración ni secretos."""
 import hashlib
 import json
 import os
@@ -13,7 +13,7 @@ from urllib.request import urlopen
 BASE = Path('/opt/mcp-juridico')
 STAGE = Path(__file__).resolve().parent
 DROP = Path('/etc/systemd/system/tunnel-client.service.d/50-juridico-hardening.conf')
-FILES = ['server.py', 'juridico.py', 'pdf_extract.py', 'smoke_mcp.py',
+FILES = ['server.py', 'juridico.py', 'pdf_extract.py', 'pdf_geometry.py', 'smoke_mcp.py',
          'OPERACIONES.md', 'tunnel-client-hardening.conf', 'deploy.py']
 
 
@@ -44,7 +44,7 @@ def ready():
 
 def main():
     if os.geteuid() != 0 or not (BASE/'.venv/bin/python').exists():
-        raise RuntimeError('Ejecutar como root en la instalación existente de /opt/mcp-juridico.')
+        raise RuntimeError('Ejecutar como root en el CT 105 existente.')
     checked = json.loads((STAGE/'smoke-results.json').read_text())
     if not checked.get('passed') or not checked.get('tested_hashes'):
         raise RuntimeError('No hay pruebas MCP satisfactorias en staging.')

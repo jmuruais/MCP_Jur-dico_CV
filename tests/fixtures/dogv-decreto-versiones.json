@@ -1,0 +1,23 @@
+[
+  {
+    "id": 3080,
+    "fechaInicioVigencia": "17/08/2022",
+    "fechaFinVigencia": null,
+    "fechaPublicacion": "20220816",
+    "inicial": false
+  },
+  {
+    "id": 3079,
+    "fechaInicioVigencia": "04/06/2021",
+    "fechaFinVigencia": "16/08/2022",
+    "fechaPublicacion": "20210603",
+    "inicial": false
+  },
+  {
+    "id": 3078,
+    "fechaInicioVigencia": "08/08/2018",
+    "fechaFinVigencia": "03/06/2021",
+    "fechaPublicacion": "20180807",
+    "inicial": true
+  }
+]

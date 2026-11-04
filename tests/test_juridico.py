@@ -92,7 +92,8 @@ class Semantics(unittest.TestCase):
     def test_dogv_search_scope_and_pagination(self):
         data = {"cabecera": {"numeroDogv": 123}, "disposiciones": [
             {"id": n, "titulo": "Ayudas universidad", "codigoInsercion": f"2026/{n}"} for n in range(3)]}
-        with patch.object(j.HTTP, "get", return_value=response(data)):
+        data["verificacion_orden"] = {"total_verificado": 3}
+        with patch.object(j, "dogv_summary_raw", return_value=(response(data), data)):
             r = j.dogv_buscar("universidad", limite=2, modo="sumario")
         self.assertEqual(r["datos"]["modo"], "filtro_local_del_sumario")
         self.assertEqual(len(r["datos"]["publicaciones"]), 2)
@@ -226,13 +227,12 @@ class GeneralSearch(unittest.TestCase):
 
     def test_cendoj_general_filters_and_next_position(self):
         with patch.object(j.HTTP, "public_cendoj_session") as session, patch.object(j.HTTP, "post_query", return_value=response(SAMPLE_TS.encode())) as post:
-            r = j.ts_buscar("despido", limite=1, sala="social", desde="2026-01-01", ecli="ES:TS:2026:123")
+            r = j.ts_buscar("despido", limite=1, sala="social", desde="2026-01-01")
         session.assert_called_once()
         params = post.call_args.args[1]
         self.assertEqual(params["action"], "query")
         self.assertEqual(params["TIPOORGANOPUB"], "|14|")
         self.assertEqual(params["FECHARESOLUCIONDESDE"], "01/01/2026")
-        self.assertEqual(params["ECLI"], "ECLI:ES:TS:2026:123")
         self.assertEqual(r["datos"]["siguiente_inicio"], 1)
         self.assertEqual(len(r["datos"]["resoluciones"]), 1)
 

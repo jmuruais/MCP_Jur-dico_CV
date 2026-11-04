@@ -1,0 +1,782 @@
+{
+  "cabecera": {
+    "numeroDogv": 8338,
+    "fecha": "Viernes, 13 de julio de 2018",
+    "any": "XLI"
+  },
+  "disposiciones": [
+    {
+      "id": 327209,
+      "titulo": "LEY 17/2018, de 11 de julio, de la Generalitat, de modificación de la Ley 21/2017, de 28 de diciembre, de medidas fiscales, de gestión administrativa y financiera y de organización de la Generalitat. ",
+      "seccion": {
+        "id": 12,
+        "descripcion": "I. DISPOSICIONES GENERALES"
+      },
+      "paginaInicial": "29605",
+      "organismo": "Presidencia de la Generalitat",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6872",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6872.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327171,
+      "titulo": "RESOLUCIÓN de 11 de julio de 2018, del director general del Instituto Valenciano de Atención Social y Sanitaria (IVASS), por la que se hace pública oferta de puestos temporales. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29879",
+      "organismo": "Instituto Valenciano de Atención Social y Sanitaria",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6900",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6900.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327201,
+      "titulo": "RESOLUCIÓN de 8 de julio de 2018, de la Dirección General de Centros y Personal Docente, por la que se emplaza a las personas interesadas en el procedimiento abreviado número 000582/2017 a comparecer en la vía jurisdiccional. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 34,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "29965",
+      "organismo": "Conselleria de Educación, Investigación, Cultura y Deporte",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6815",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6815.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327196,
+      "titulo": "RESOLUCIÓN de 6 de julio de 2018, de la Universitat de València, por la que se hace la oferta pública de una plaza de investigador o investigadora no doctor de este organismo con contrato laboral temporal. Proyecto: «Advanced Remote Sensing of Soil Moisture and Vegetation from Space. CPI-18-222». ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29904",
+      "organismo": "Universitat de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6787",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6787.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327197,
+      "titulo": "RESOLUCIÓN de 6 de julio de 2018, de la Universitat de València, por la que se hace la oferta pública de una plaza de investigador o investigadora no doctor de este organismo con contrato laboral temporal. Proyecto: «Inclusive demonstrator. CPI-18-223». ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29909",
+      "organismo": "Universitat de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6788",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6788.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327192,
+      "titulo": "RESOLUCIÓN de 4 de julio de 2018, de la Universidad de Alicante, por la que se publica la relación definitiva de personas aspirantes aprobadas en las pruebas selectivas para el ingreso en la escala oficial-especialista para ocupar puestos de administración especial, sector laboratorios de instrumentación científica, en el Instituto Universitario de Electroquímica, por el sistema general de acceso libre convocados por Resolución de 27 de octubre de 2017. Referencia C03/17. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29893",
+      "organismo": "Universidad de Alicante",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6649",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6649.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327208,
+      "titulo": "RESOLUCIÓN de 10 de julio de 2018, de la Conselleria de Justicia, Administración Pública, Reformas Democráticas y Libertades Públicas, por la que se eleva a definitiva la lista provisional de personas admitidas y excluidas a las pruebas selectivas de acceso al cuerpo auxiliar de la administración, escala auxiliar de gestión, C2-01-01, sector administración general, turno de acceso libre y turno de personas con diversidad funcional, convocatoria 9/16, correspondiente a la oferta de empleo público de 2016 para el personal de la Administración de la Generalitat. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29609",
+      "organismo": "Conselleria de Justicia, Administración Pública, Reformas Democráticas y Libertades Públicas",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6867",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6867.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327194,
+      "titulo": "RESOLUCIÓN de 6 de julio 2018, de la Universitat de València, por la que se hace la oferta pública de una plaza de técnico o técnica superior de apoyo a la investigación de este organismo con contrato laboral temporal. Proyecto: «Creación de unidades científicas de innovación empresarial Línea nominativa S0702000. CPI-18-216». ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29894",
+      "organismo": "Universitat de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6785",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6785.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327195,
+      "titulo": "RESOLUCIÓN de 5 de julio 2018, de la Universitat de València, por la que se hace la oferta pública de una plaza de oficial u oficiala de laboratorio de apoyo a la investigación de este organismo con contrato laboral temporal. Proyecto: «CAVIPRO. Diagnóstico y tratamiento de la calidad de vida de los profesionales de cuidados intensivos y paliativos: eficacia de intervenciones basadas en mindfulness. CPI-18-219». ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29899",
+      "organismo": "Universitat de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6786",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6786.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327193,
+      "titulo": "RESOLUCIÓN de 4 de julio de 2018, del director de la Agencia de Prevención y Lucha contra el Fraude y la Corrupción de la Comunitat Valenciana, por la que se proveen, por el sistema de libre designación, los puestos de trabajo número 2 y 10, anunciados en la convocatoria número 2/2018, de 12 de abril de 2018. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 31,
+        "descripcion": "B) NOMBRAMIENTOS Y CESES"
+      },
+      "paginaInicial": "29962",
+      "organismo": "Agencia de Prevención y Lucha Contra El Fraude y la Corrupción de la Comunitat Valenciana",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6708",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6708.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327207,
+      "titulo": "RESOLUCIÓN de 10 de julio de 2018, del Rectorado, por la cual se convoca concurso para la provisión interina de plazas de profesorado contratado doctor. Convocatoria número 9. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29919",
+      "organismo": "Universitat de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6835",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6835.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327186,
+      "titulo": "Bases de la convocatoria para la provisión en propiedad de una plaza de arquitecto o arquitecta por el sistema de concurso-oposición libre. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29891",
+      "organismo": "Ayuntamiento de Villena",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6572",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6572.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327184,
+      "titulo": "Convocatoria del proceso selectivo para la contratación indefinida de personal fijo de plantilla para una plaza de la categoría de conductor/conductora de barredora para el servicio de limpieza viaria y formación de bolsa. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29954",
+      "organismo": "Empresa de Servicis de Paiporta (Espai)",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6515",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6515.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327182,
+      "titulo": "Bases de la convocatoria para la provisión en propiedad de tres plazas de agente de la policía local. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29892",
+      "organismo": "Ayuntamiento de Chilches",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6559",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6559.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327174,
+      "titulo": "RESOLUCIÓN de 11 de julio de 2018, del rector, por la que se convoca concurso para la provisión de los puestos de trabajo vacantes del grupo A, subgrupo A1, sector de administración especial, técnico superior facultativo, con destino en la Biblioteca General de esta Universitat. Código: 2018/P/FC/CM/3. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29943",
+      "organismo": "Universitat Politècnica de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6902",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6902.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327200,
+      "titulo": "RESOLUCIÓN de 8 de julio de 2018, de la Dirección General de Centros y Personal Docente, por la que se emplaza a las personas interesadas en el procedimiento abreviado número 000021/2018 a comparecer en la vía jurisdiccional. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 34,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "29964",
+      "organismo": "Conselleria de Educación, Investigación, Cultura y Deporte",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6814",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6814.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327173,
+      "titulo": "RESOLUCIÓN de 4 de julio de 2018, del Rectorado, por la que se convoca una oferta pública para la selección de personal investigador de este organismo, con contrato laboral temporal por obra o servicio a tiempo completo. Proyecto: «Nanogeles Moleculares fotoactivos orientados a la solución de retos biomédicos», CTQ2015-71004-R. ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29939",
+      "organismo": "Universitat Jaume I de Castelló",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6881",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6881.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327198,
+      "titulo": "RESOLUCIÓN de 6 de julio 2018, de la Universitat de València, por la que se hace la oferta pública de una plaza de técnico o técnica superior de apoyo a la investigación de este organismo con contrato laboral temporal. Proyecto: «Creación de unidades científicas de innovación empresarial Linea nominativa S0702000. CPI-18-224». ",
+      "seccion": {
+        "id": 13,
+        "descripcion": "II. AUTORIDADES Y PERSONAL"
+      },
+      "subseccion": {
+        "id": 28,
+        "descripcion": "A) OFERTAS DE EMPLEO PÚBLICO, OPOSICIONES Y CONCURSOS"
+      },
+      "paginaInicial": "29914",
+      "organismo": "Universitat de València",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6789",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6789.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327204,
+      "titulo": "RESOLUCIÓN de 9 de julio de 2018, de la Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo, de concesión de las ayudas convocadas por Resolución de 29 de diciembre de 2017, del director general de Comercio y Consumo, por la que se efectúa la convocatoria anticipada para el ejercicio 2018 de las ayudas en materia de comercio, consumo y artesanía, al amparo de la Orden 14/2016, de 5 de agosto, de la Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo, por la que se aprueban las bases reguladoras para la concesión de subvenciones en materia de comercio, consumo y artesanía. Capítulo III del título II, artículo 22.7. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29970",
+      "organismo": "Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6818",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6818.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327172,
+      "titulo": "RESOLUCIÓN de 6 de julio de 2018, de la Dirección General de Comercio y Consumo, por la que se hace público un extracto de la declaración de zona de gran afluencia turística del municipio de Agost. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 46,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "30025",
+      "organismo": "Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6884",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6884.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327183,
+      "titulo": "RESOLUCIÓN de 27 de junio de 2018, de la Secretaría Autonómica de Educación e Investigación, por la que se determinan los módulos susceptibles de desdoble en los ciclos formativos de grado medio y superior para el curso 2018-2019 y el procedimiento de solicitud en los centros privados concertados. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 46,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "30026",
+      "organismo": "Conselleria de Educación, Investigación, Cultura y Deporte",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6417",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6417.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327203,
+      "titulo": "RESOLUCIÓN de 9 de julio de 2018, de la Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo, de concesión de las ayudas convocadas por Resolución de 29 de diciembre de 2017, del director general de Comercio y Consumo, por la que se efectúa la convocatoria anticipada para el ejercicio 2018 de las ayudas en materia de comercio, consumo y artesanía, al amparo de la Orden 14/2016, de 5 de agosto, de la Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo, por la que se aprueban las bases reguladoras para la concesión de subvenciones en materia de comercio, consumo y artesanía. Capítulo III del título II, artículo 22, punto 9. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29968",
+      "organismo": "Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6817",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6817.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327177,
+      "titulo": "Extracto de la Resolución de 4 de julio de 2018, de la directora general del Instituto Valenciano de Competitividad Empresarial (IVACE), por la que se amplía el presupuesto de la convocatoria de ayudas para la instalación de infraestructuras de recarga para vehículos eléctricos, con cargo al presupuesto del ejercicio 2018. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29976",
+      "organismo": "Instituto Valenciano de Competitividad Empresarial",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6925",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6925.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327176,
+      "titulo": "RESOLUCIÓN de 10 de julio de 2018, de la Dirección General de Deporte, por la que se convocan subvenciones destinadas a los clubes deportivos de élite con participación en competiciones oficiales internacionales o ligas de máxima categoría estatal de deporte no profesional para el año 2018. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29977",
+      "organismo": "Conselleria de Educación, Investigación, Cultura y Deporte",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6922",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6922.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327175,
+      "titulo": "RESOLUCIÓN de 4 de julio de 2018, de la directora general del Instituto Valenciano de Competitividad Empresarial (IVACE), por la que se amplía el presupuesto de la convocatoria de ayudas para la instalación de infraestructuras de recarga para vehículos eléctricos, con cargo al presupuesto del ejercicio 2018. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29975",
+      "organismo": "Instituto Valenciano de Competitividad Empresarial",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6914",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6914.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327189,
+      "titulo": "RESOLUCIÓN de 20 de junio de 2018. de la Dirección General de Medio Natural y de Evaluación Ambiental, por la cual se ordena la publicación de los informes ambientales y territoriales estratégicos correspondientes a los expedientes 21/17-EAE Castelló de Rugat y 61/17-EAE Vilafamés. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 46,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "30006",
+      "organismo": "Conselleria de Agricultura, Medio Ambiente, Cambio Climático y Desarrollo Rural",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6569",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6569.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327191,
+      "titulo": "RESOLUCIÓN de 20 de junio de 2018, de la Dirección General de Agricultura, Ganadería y Pesca, por la que se autoriza la modificación de un establecimiento de acuicultura marina (establecimiento de acuicultura marina con número de registro 30) en terrenos de dominio público marítimo terrestre frente al término municipal de Guardamar del Segura sin aumento de producción. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 41,
+        "descripcion": "A) AUTORIZACIONES Y CONCESIONES"
+      },
+      "paginaInicial": "29966",
+      "organismo": "Conselleria de Agricultura, Medio Ambiente, Cambio Climático y Desarrollo Rural",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6574",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6574.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327188,
+      "titulo": "RESOLUCIÓN de 20 de junio de 2018, de la Dirección General de Medio Natural y de Evaluación Ambiental, por la cual se ordena la publicación de los informes ambientales y territoriales estratégicos correspondientes a los expedientes 18/17-EAE Almàssera y 7/18-EAE Borriol. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 46,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "29992",
+      "organismo": "Conselleria de Agricultura, Medio Ambiente, Cambio Climático y Desarrollo Rural",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6568",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6568.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327178,
+      "titulo": "Extracto de la Resolución de 10 de julio de 2018, de la Dirección General de Deporte, por la que se convocan subvenciones destinadas a los clubes deportivos de élite con participación en competiciones oficiales internacionales o ligas de máxima categoría estatal de deporte no profesional para el año 2018. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29991",
+      "organismo": "Conselleria de Educación, Investigación, Cultura y Deporte",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6926",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6926.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327205,
+      "titulo": "RESOLUCIÓN de 9 de julio de 2018, de la Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo, de concesión de las ayudas convocadas por Resolución de 29 de diciembre de 2017, del director general de Comercio y Consumo, por la que se efectúa la convocatoria anticipada para el ejercicio 2018 de las ayudas en materia de comercio, consumo y artesanía, al amparo de la Orden 14/2016, de 5 de agosto, de la Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo, por la que se aprueban las bases reguladoras para la concesión de subvenciones en materia de comercio, consumo y artesanía. Capítulo II del título II, artículo 20.2. ",
+      "seccion": {
+        "id": 14,
+        "descripcion": "III. ACTOS ADMINISTRATIVOS"
+      },
+      "subseccion": {
+        "id": 44,
+        "descripcion": "B) SUBVENCIONES Y BECAS"
+      },
+      "paginaInicial": "29973",
+      "organismo": "Conselleria de Economía Sostenible, Sectores Productivos, Comercio y Trabajo",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6821",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6821.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327181,
+      "titulo": "Notificación de la sentencia dictada en el juicio verbal número 1008/2016. ",
+      "seccion": {
+        "id": 17,
+        "descripcion": "IV. ADMINISTRACIÓN DE JUSTICIA"
+      },
+      "paginaInicial": "30028",
+      "organismo": "Juzgado de Primera Instancia Número 1 de Torrent",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6511",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6511.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327180,
+      "titulo": "Notificación de la sentencia dictada en el procedimiento ordinario número 1310/2016. ",
+      "seccion": {
+        "id": 17,
+        "descripcion": "IV. ADMINISTRACIÓN DE JUSTICIA"
+      },
+      "paginaInicial": "30029",
+      "organismo": "Juzgado de Primera Instancia Número 2 de Torrent",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6510",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6510.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327179,
+      "titulo": "Adjudicación y formalización del contrato número 51/2018. Servicio de gestión integral de la lavandería de los centros de la Conselleria de Sanidad Universal y Salud Pública en el Departamento de Salud de La Ribera. ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 65,
+        "descripcion": "B) LICITACIÓN Y ADJUDICACIÓN DE CONTRATOS"
+      },
+      "paginaInicial": "30037",
+      "organismo": "Conselleria de Sanidad Universal y Salud Pública",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6549",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6549.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327199,
+      "titulo": "Información pública de la versión inicial preliminar del Plan general estructural, incluyendo su estudio ambiental y territorial estratégico y el resto de documentos exigibles por la normativa sectorial. ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 60,
+        "descripcion": "A) ORDENACIÓN DEL TERRITORIO Y URBANISMO"
+      },
+      "paginaInicial": "30034",
+      "organismo": "Ayuntamiento de Tírig",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6805",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6805.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327185,
+      "titulo": "Adjudicación y formalización del contrato número CNMY18/DGTIC/05. Suministro de suscripciones nuevas y renovación de suscripciones de los productos de Adobe de uso en puesto de trabajo de la Generalitat. ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 65,
+        "descripcion": "B) LICITACIÓN Y ADJUDICACIÓN DE CONTRATOS"
+      },
+      "paginaInicial": "30036",
+      "organismo": "Conselleria de Hacienda y Modelo Económico",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6532",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6532.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327202,
+      "titulo": "Resolución de 9 de julio de 2018, del subsecretario, por la que se emplaza a las personas interesadas en el procedimiento ordinario número 5/000167/2018 a comparecer en la vía jurisdiccional. ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 67,
+        "descripcion": "C) OTROS ASUNTOS"
+      },
+      "paginaInicial": "30041",
+      "organismo": "Conselleria de Educación, Investigación, Cultura y Deporte",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6819",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6819.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327190,
+      "titulo": "Formalización del contrato número 21/17. Asistencias técnicas bajo la figura de secretarías técnicas para el impulso y gestión de las líneas de producto de la estrategia Creaturisme de la Agència Valenciana del Turisme. ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 65,
+        "descripcion": "B) LICITACIÓN Y ADJUDICACIÓN DE CONTRATOS"
+      },
+      "paginaInicial": "30038",
+      "organismo": "Agencia Valenciana del Turisme",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6666",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6666.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327187,
+      "titulo": "Adjudicación y formalización del contrato número CNMY17/DGTIC/42. Servicios de mantenimiento y apoyo a la explotación y de suministro para la renovación tecnológica y la ampliación de la Red de Comunicaciones Móviles Digitales de Emergencias y Seguridad de la Generalitat Valenciana (red COMDES). ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 65,
+        "descripcion": "B) LICITACIÓN Y ADJUDICACIÓN DE CONTRATOS"
+      },
+      "paginaInicial": "30035",
+      "organismo": "Conselleria de Hacienda y Modelo Económico",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6565",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6565.pdf",
+      "borrador": false
+    },
+    {
+      "id": 327206,
+      "titulo": "Licitación número PATR-016/2018. Autorización para la explotación por terceros de la instalación temporal en la playa de Marenys de Rafalcaid de Gandia consistente en quiosco expendedor de bebidas y snacks durante la temporada del año 2018. ",
+      "seccion": {
+        "id": 26,
+        "descripcion": "V. ANUNCIOS"
+      },
+      "subseccion": {
+        "id": 65,
+        "descripcion": "B) LICITACIÓN Y ADJUDICACIÓN DE CONTRATOS"
+      },
+      "paginaInicial": "30039",
+      "organismo": "Ayuntamiento de Gandia",
+      "consolidacion": false,
+      "fechaPublicacion": "13/07/2018",
+      "codigoInsercion": "2018/6826",
+      "numOrden": 0,
+      "urlPdf": "/2018/07/13/pdf/2018_6826.pdf",
+      "borrador": false
+    }
+  ],
+  "esBis": false,
+  "fechaSumario": "13-07-2018",
+  "codigoInsercion": null,
+  "existeUrl": false,
+  "urlPdf": null
+}
