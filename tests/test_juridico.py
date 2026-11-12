@@ -227,7 +227,7 @@ class GeneralSearch(unittest.TestCase):
 
     def test_cendoj_general_filters_and_next_position(self):
         with patch.object(j.HTTP, "public_cendoj_session") as session, patch.object(j.HTTP, "post_query", return_value=response(SAMPLE_TS.encode())) as post:
-            r = j.ts_buscar("despido", limite=1, sala="social", desde="2026-01-01")
+            r = j.ts_buscar("despido", limite=1, sala="social", desde="2026-01-01", orden="cronologico")
         session.assert_called_once()
         params = post.call_args.args[1]
         self.assertEqual(params["action"], "query")

@@ -13,7 +13,7 @@ from urllib.request import urlopen
 BASE = Path('/opt/mcp-juridico')
 STAGE = Path(__file__).resolve().parent
 DROP = Path('/etc/systemd/system/tunnel-client.service.d/50-juridico-hardening.conf')
-FILES = ['server.py', 'juridico.py', 'pdf_extract.py', 'pdf_geometry.py', 'smoke_mcp.py',
+FILES = ['server.py', 'juridico.py', 'pdf_extract.py', 'pdf_geometry.py', 'search_logic.py', 'smoke_mcp.py',
          'OPERACIONES.md', 'tunnel-client-hardening.conf', 'deploy.py']
 
 

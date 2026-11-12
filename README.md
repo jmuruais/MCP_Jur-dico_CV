@@ -1,6 +1,6 @@
 # MCP Jurídico Español · Comunitat Valenciana
 
-Servidor MCP de consulta de fuentes jurídicas oficiales españolas: **BOE**, **DOGV** y jurisprudencia del **Tribunal Supremo en CENDOJ**. Versión **1.1.5**, transporte **stdio**, 14 herramientas. No realiza llamadas a APIs de modelos ni utiliza buscadores de pago.
+Servidor MCP de consulta de fuentes jurídicas oficiales españolas: **BOE**, **DOGV** y jurisprudencia del **Tribunal Supremo en CENDOJ**. Versión **1.2.3**, transporte **stdio**, 14 herramientas. No realiza llamadas a APIs de modelos ni utiliza buscadores de pago.
 
 ## Capacidades
 
@@ -13,21 +13,19 @@ Servidor MCP de consulta de fuentes jurídicas oficiales españolas: **BOE**, **
 
 Las respuestas incluyen estado `ok`, enlaces oficiales, fecha de consulta, alcance, advertencias y paginación cuando corresponda. El contenido recuperado se trata como datos externos.
 
-## Mejoras de la versión 1.1.5
+## Mejoras desde la versión 1.1.5
 
-- DOGV original: separación geométrica de castellano y valenciano, páginas de procedencia y selección `idioma=es`, `va` o `ambos`. Las páginas ambiguas se omiten con advertencia.
-- Anexo del Decreto 104/2018: tablas de niveles I–IV en JSON y Markdown con validación geométrica específica. Las demás tablas no se presentan como estructura verificada.
-- CENDOJ: ROJ/ECLI principales extraídos solo de cabecera; resoluciones citadas separadas y cotejo con la búsqueda reciente de la misma sesión.
-- Estados distintos: documento recuperado, texto extraído y extracción verificada. Una descarga correcta no acredita integridad jurídica o estructural.
-- Mantiene las mejoras acumuladas de sumarios DOGV, originales/versiones históricas, búsqueda exacta y alternativa oficial BOE ante determinados errores de la API.
+- DOGV localiza disposiciones por número y título, contrasta candidatas y declara si queda búsqueda pendiente.
+- La extracción del original admite páginas físicas seleccionadas y conserva los enlaces oficiales y el idioma de cada fragmento.
+- El localizador de frases devuelve páginas candidatas y parámetros para extraer una página o continuar el barrido. La extracción automática puede devolver un pasaje si se confirma la frase en el idioma solicitado.
 
-Ejemplo compatible con clientes que aún usan el esquema anterior:
+Ejemplo para localizar y extraer un pasaje en una llamada.
 
 ```json
-{"herramienta":"dogv_publicacion","argumentos":{"identificador":"original:2018/7822","idioma":"es","max_caracteres":16000}}
+{"herramienta":"dogv_publicacion","argumentos":{"identificador":"2021/4855","tipo_texto":"original","buscar_pdf":"racionalización de los recursos","extraer_pdf":true,"max_caracteres":500}}
 ```
 
-`original:` es un selector de extracción, no parte de la signatura oficial. Los campos heredados `roj_en_documento`/`ecli_en_documento` ahora contienen solo la identidad principal; usar `roj_resoluciones_citadas`/`ecli_resoluciones_citadas` para las menciones. Véase [CHANGELOG.md](CHANGELOG.md).
+En clientes con un catálogo anterior se puede usar `original:2021/4855#buscar=racionalización de los recursos#extraer=1` como identificador. El localizador busca en el texto disponible del PDF y carece de OCR. Véase [CHANGELOG.md](CHANGELOG.md).
 
 ## Requisitos e instalación
 
@@ -74,7 +72,7 @@ Ejemplos de argumentos para un cliente MCP:
 {"herramienta":"ts_buscar","argumentos":{"consulta":"despido","sala":"social","desde":"2025-01-01","hasta":"2026-10-26","limite":2}}
 ```
 
-Los objetos anteriores ilustran las llamadas; no son una API HTTP del servidor. Para comprobarlo desde ChatGPT, pedir primero `juridico_estado` y confirmar versión 1.1.5; después ejecutar ambos ejemplos y buscar por el ECLI de un resultado. Revisar `ok` e `isError`, argumentos disponibles, enlaces y fecha de consulta.
+Los objetos anteriores ilustran las llamadas; no son una API HTTP del servidor. Para comprobarlo desde ChatGPT, pedir primero `juridico_estado` y confirmar versión 1.2.3; después ejecutar ambos ejemplos y buscar por el ECLI de un resultado. Revisar `ok` e `isError`, argumentos disponibles, enlaces y fecha de consulta.
 
 ## Pruebas y actualización
 
@@ -90,9 +88,7 @@ Pruebas de integración manuales, desde el directorio del proyecto y con los req
 /opt/mcp-juridico/.venv/bin/python smoke_mcp.py
 ```
 
-La versión 1.1.5 ha superado **94 pruebas unitarias**, **29 comprobaciones con documentos oficiales de referencia** y **25 comprobaciones por MCP**. La batería MCP actual consulta BOE/DOGV e incluye errores esperados y respuestas parciales. Tras reiniciar también se verificaron las tres búsquedas ECLI y los PDF de ATS 11323/2025, STS 5562/2025 y STS 5603/2025.
-
-Las consultas reales son manuales y puntuales. Las fechas y casos corresponden a la validación del 4 de noviembre de 2026; su disponibilidad futura depende de las fuentes. No programar estas consultas como monitor frecuente.
+La versión 1.2.3 superó **140 pruebas unitarias** y **41 comprobaciones MCP de BOE y DOGV** con `smoke_mcp.py --sin-cendoj`, incluido el orden oficial de las 53 publicaciones del DOGV 10483. La validación del 12 de noviembre de 2026 también ejecutó la continuación del barrido y la extracción de una página desde Work. La disponibilidad futura depende de las fuentes. Ejecutar las consultas en vivo de forma puntual.
 
 Los documentos de referencia no están incluidos en este repositorio ni alimentan el servicio. Para validar muestras oficiales ya descargadas, ejecutar `python tests/reference_documents.py DIRECTORIO_MUESTRAS`; el manual describe los archivos requeridos.
 

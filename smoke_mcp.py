@@ -1,4 +1,4 @@
-"""Regresión puntual DOGV por protocolo MCP, con guardia BOE. Sin corpus ni llamadas CENDOJ."""
+"""Regresión puntual por protocolo MCP, con casos DOGV, BOE y CENDOJ."""
 import asyncio,hashlib,json,sys,time
 from pathlib import Path
 from fastmcp import Client
@@ -21,7 +21,7 @@ async def main():
    report['tests'].append(entry);target.write_text(json.dumps(report,ensure_ascii=False,indent=2))
    print(json.dumps({k:v for k,v in entry.items() if k!='response'},ensure_ascii=False),flush=True)
    return d
-  state=await call('S00','juridico_estado',{},lambda x:x['ok'] and x['version']=='1.1.5' and x['uid_proceso']!=0);report['version']=state.get('version')
+  state=await call('S00','juridico_estado',{},lambda x:x['ok'] and x['version']=='1.2.3' and x['uid_proceso']!=0);report['version']=state.get('version')
   await call('BOE-guardia','boe_bloque',{'identificador':'BOE-A-2015-10565','id_bloque':'a32'},lambda x:x['ok'] and len(x['datos']['texto'])>200)
   first=await call('D-global-0','dogv_buscar',{'texto':'Decreto 104/2018','limite':2},lambda x:x['ok'] and bool(x['datos']['publicaciones']))
   await call('D-global-2','dogv_buscar',{'texto':'Decreto 104/2018','limite':2,'inicio':2},lambda x:x['ok'] and x['datos']['total']==first['datos']['total'] and {p['id'] for p in x['datos']['publicaciones']}.isdisjoint({p['id'] for p in first['datos']['publicaciones']}))
@@ -46,8 +46,40 @@ async def main():
   await call('D-CVE-original','dogv_publicacion',{'identificador':'DOGV-C-2026-33531','tipo_texto':'original','max_caracteres':1000},lambda x:x['ok'] and x['datos']['naturaleza_texto']=='publicacion_original_pdf' and bool(x['datos']['documento_original']['sha256_fuente']))
   for ident,lang in [('original:2018/7822','es'),('original:2018/7822','va'),('original:2019/4442','es'),('original:2019/4442','va'),('original:2019/4442','ambos')]:
    await call('PDF-'+ident+'-'+lang,'dogv_publicacion',{'identificador':ident,'idioma':lang,'max_caracteres':1000},lambda x,l=lang:x['ok'] and x['datos']['idioma_solicitado']==l and not x['datos']['paginas_omitidas'] and bool(x['datos']['paginas_fragmento']) and x['datos']['extraccion_verificada'] is False and x['datos']['documento_recuperado'] and x['datos']['texto_extraido'])
+  for case, signature, pages, total, required in [
+      ('P-preambulo','2019/2067',[4],60,{'va':'PREÀMBUL','es':'PREÁMBULO'}),
+      ('P-ESO','2022/7573',[27],1298,{'va':"Caràcter de l’avaluació",'es':'Carácter de la evaluación'}),
+      ('P-infantil','2022/7571',[69,122],130,{'va':'Situacions d’aprenentatge','es':'Situaciones de aprendizaje'}),
+      ('P-nuevo-decreto','2021/4855',[1],None,{'va':'DECRET 58/2021','es':'DECRETO 58/2021'}),
+      ('P-nueva-orden','2021/5702',[1],None,{'va':'Conselleria','es':'Conselleria'}),
+  ]:
+   def selected(result):
+    d=result['datos'];chunks=d['paginas_fragmento'];text=d['texto']
+    return (result['ok'] and d['paginas_solicitadas']==pages and (total is None or d['paginas_totales']==total)
+      and d['seleccion_completa'] and not d['recuperacion_completa'] and d['naturaleza_texto']=='publicacion_original_pdf'
+      and bool(result['sha256_fuente']) and d['documento_original']['sha256_fuente']==result['sha256_fuente']
+      and set(x['pagina_pdf'] for x in chunks)==set(pages) and all(x['url_oficial'].endswith('#page='+str(x['pagina_pdf'])) for x in chunks)
+      and all(any(x['idioma']==language and token.casefold() in text[x['inicio_en_fragmento']:x['fin_en_fragmento']].casefold()
+                  for x in chunks) for language,token in required.items()))
+   args={'identificador':'original:'+signature,'idioma':'ambos','max_caracteres':30000}
+   if case=='P-preambulo':
+    args['identificador']+='#paginas=4'
+   else:
+    args['paginas']=pages
+   await call(case,'dogv_publicacion',args,selected)
+  await call('P-invalida','dogv_publicacion',{'identificador':'original:2021/4855','paginas':[10000]},lambda x:not x['ok'] and x['error']['codigo']=='PAGINAS_INVALIDAS')
+  for case,query,code in [('D01','Ley 4/2021 de función pública valenciana','2021/3988'),('D02','Ley 5/2023 contra el despoblamiento','2023/4174'),('D03','Ley 2/2023 de bienestar animal','2023/2777'),('D04','Decreto 104/2018 de inclusión','2018/7822'),('D06','Orden 20/2019 de inclusión educativa','2019/4442'),('D06b','Orden 20/2019 de enseñanzas deportivas','2019/12131')]:
+   await call(case,'dogv_buscar',{'texto':query,'modo':'disposicion'},lambda x,c=code:x['ok'] and x['datos']['localizacion']=='localizada' and [p['codigoInsercion'] for p in x['datos']['publicaciones']]==[c] and x['datos']['identificacion_verificada'])
+  await call('D05','dogv_buscar',{'texto':'Orden 20/2019','modo':'disposicion'},lambda x:x['ok'] and x['datos']['ambiguedad'] and len(x['datos']['publicaciones'])>=3)
+  await call('D07','dogv_buscar',{'texto':'Ley 4/2021','modo':'disposicion','max_paginas':1},lambda x:x['ok'] and x['datos']['localizacion']=='no_confirmada' and not x['datos']['recuperacion_completa'] and x['datos']['siguiente_inicio'] is not None)
+  if '--sin-cendoj' not in sys.argv:
+   for case,query,roj in [('J01','Obligación de entregar silla ergonómica a teletrabajadores','STS 3940/2025'),('J02','Videovigilancia de trabajadora en caja de comercio','STS 149/2025'),('J03','Plazo de aprobación de facturas e intereses de demora','STS 1612/2026')]:
+    await call(case,'ts_buscar',{'consulta':query,'limite':5},lambda x,r=roj:x['ok'] and r in [p['roj'] for p in x['datos']['resoluciones']] and not x['datos']['identificacion_verificada'] and x['datos']['paginas_consultadas']<=2)
+  await call('R01','boe_bloque',{'identificador':'BOE-A-2013-12887','id_bloque':'a20'},lambda x:x['ok'] and len(x['datos']['texto'])>300)
+  await call('D-filtro-vigentes','dogv_buscar',{'texto':'Ley 4/2021','modo':'disposicion','solo_vigentes':True},lambda x:x['ok'] and all(t['estrategia']!='referencia_cruzada_boe_titulo' for t in x['datos']['traza']) and all(t['filtros_aplicados'].get('solo_vigentes') is True for t in x['datos']['traza']))
+ report['incluye_cendoj']='--sin-cendoj' not in sys.argv
  report['passed']=all(t['passed'] for t in report['tests']) and report['orden_10483']['coincidencia_completa']
- report['tested_hashes']={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in ('server.py','juridico.py','pdf_extract.py','pdf_geometry.py','smoke_mcp.py')}
+ report['tested_hashes']={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in ('server.py','juridico.py','pdf_extract.py','pdf_geometry.py','search_logic.py','smoke_mcp.py')}
  target.write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps({'passed':report['passed'],'orden':report['orden_10483']}),flush=True)
  if not report['passed']:sys.exit(1)
 if __name__=='__main__':asyncio.run(main())

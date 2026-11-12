@@ -16,6 +16,7 @@ def text_packet():
 class Precision(unittest.TestCase):
  def setUp(self):
   self.base=copy.deepcopy(BASE);self.cat=copy.deepcopy(CAT);self.wrong_pdf=False;self.cat_error=False
+  patcher=patch.object(j,'dogv_search_metadata',side_effect=lambda item,*a:dict(item,identificacion_verificada=True));patcher.start();self.addCleanup(patcher.stop)
  def get(self,url,*args,**kwargs):
   if '/fechasVigencia' in url:
    if self.cat_error:raise j.JuridicoError('HTTP_ERROR','fuente',status=503)
@@ -109,7 +110,7 @@ class Precision(unittest.TestCase):
  def test_exact_search_incomplete_page_does_not_prove_absence(self):
   d={'pageNumber':0,'pageSize':10,'totalElements':20,'content':[{'id':1,'codigoInsercion':'2026/1','titulo':'ORDEN 1/2026, desarrolla el Decreto 104/2018'}]}
   with patch.object(j.HTTP,'post_query',return_value=response(d,j.DOGV)):
-   r=j.dogv_buscar('Decreto 104/2018',modo='disposicion')
+   r=j.dogv_buscar('Decreto 104/2018',modo='disposicion',max_paginas=1)
   self.assertFalse(r['datos']['recuperacion_completa']);self.assertIsNone(r['datos']['total']);self.assertEqual(r['datos']['publicaciones'],[])
  def test_exact_query_requires_number_and_type_before_network(self):
   with patch.object(j.HTTP,'post_query') as post:
@@ -127,7 +128,7 @@ class AdditionalPrecision(unittest.TestCase):
   rows=[{'id':1,'codigoInsercion':'2018/1','titulo':'DECRETO 104/2018bis, no coincide'},{'id':2,'codigoInsercion':'2018/2','titulo':'DECRETO 104/20180, no coincide'}]
   d={'pageNumber':0,'pageSize':10,'totalElements':2,'content':rows}
   with patch.object(j.HTTP,'post_query',return_value=response(d,j.DOGV)):
-   r=j.dogv_buscar('Decreto 104/2018',modo='disposicion')
+   r=j.dogv_buscar('Decreto 104/2018',modo='disposicion',max_paginas=1)
   self.assertEqual(r['datos']['publicaciones'],[]);self.assertEqual(r['datos']['total'],0)
  def test_pdf_reference_must_identify_first_page_not_only_a_later_citation(self):
   obj=Precision();obj.setUp()

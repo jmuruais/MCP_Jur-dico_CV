@@ -32,7 +32,7 @@ class Transport(unittest.TestCase):
    http=j.OfficialHTTP();error=HTTPError(j.CENDOJ+'indexAN.jsp',status,'Error',{},io.BytesIO())
    with patch.object(http.opener,'open',side_effect=error) as op,patch.object(j.time,'sleep'):
     with self.assertRaises(j.JuridicoError) as c:http.get(j.CENDOJ+'indexAN.jsp')
-   self.assertEqual(op.call_count,1);self.assertEqual(c.exception.status,status)
+   self.assertEqual(op.call_count,1);self.assertEqual(c.exception.status,status);self.assertFalse(c.exception.reintentable)
  def test_transient_has_at_most_one_retry(self):
   for status in [502,503,504]:
    http=j.OfficialHTTP()

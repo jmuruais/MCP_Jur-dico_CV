@@ -1,5 +1,13 @@
 # Cambios
 
+## 1.2.3 · 12 de noviembre de 2026
+
+Las búsquedas de frases en originales DOGV incluyen argumentos para extraer la página de una coincidencia y continuar desde la siguiente página física con la misma configuración. La validación comprobó 12 coincidencias en cada uno de dos tramos consecutivos del mismo original y recuperó una de las páginas propuestas.
+
+## Mejoras acumuladas 1.1.6–1.2.2
+
+Localización DOGV progresiva con identificación de disposiciones y exposición de ambigüedad. Selección de páginas físicas del PDF original y localización de frases con un barrido acotado. Extracción automática de un pasaje alrededor de la frase si se confirma en el idioma solicitado, con prioridad para un único posible encabezado y opción de extraer una mención única del tramo.
+
 ## 1.1.5 — 4 de noviembre de 2026
 
 Extracción geométrica de originales DOGV con selección es/va/ambos, orden por columna y referencias por página. Tablas de niveles I–IV verificadas por geometría y representadas en JSON/Markdown; páginas o tablas inciertas se indican expresamente.
