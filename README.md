@@ -82,6 +82,24 @@ Pruebas unitarias sin acceso a red (requieren PyMuPDF para las muestras sintéti
 python3 -m unittest discover -s tests -v
 ```
 
+Para ejecutar la suite con DNS y conexiones bloqueados desde OpenCode, sin
+instalar ni modificar dependencias:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 /srv/mcp-test/venv/bin/python tests/run_unit_tests.py
+```
+
+El bloqueo cubre el proceso de pruebas; los extractores PDF locales se ejecutan
+en subprocesos y no realizan consultas de red.
+La revisión local de defectos y sus regresiones se documenta en
+[REVISION_FUNCIONAL.md](REVISION_FUNCIONAL.md).
+La suite ampliada pasa **152 pruebas sin red**. El parser y el detector de
+referencias múltiples comparten vocabulario normativo para evitar que una
+segunda referencia se interprete como contexto. La búsqueda unificada BOE
+rechaza `fecha` en vez de ignorarla; en CENDOJ el total agregado de varias
+consultas es desconocido (`total_fuente=null`), con los totales de cada
+estrategia y sus continuaciones en la traza.
+
 Pruebas de integración manuales, desde el directorio del proyecto y con los requisitos de ejecución preparados:
 
 ```bash

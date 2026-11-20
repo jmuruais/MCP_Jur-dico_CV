@@ -11,6 +11,29 @@ def result(rows,total=None,start=0):
  d={'publicaciones':copy.deepcopy(rows),'total':len(rows) if total is None else total,'siguiente_inicio':start+len(rows) if total and start+len(rows)<total else None,'filtros':{'solo_titulo':True},'recuperacion_completa':True}
  return {'ok':True,'datos':d,'url_api':j.DOGV+'/dogv/search','url_oficial':'https://dogv.gva.es/es/','consultado_en':'2026-11-04T00:00:00Z','cache':False,'sha256_fuente':'a'*64}
 def verify(item,*args):return dict(item,identificacion_verificada=True)
+class ReferenceVocabulary(unittest.TestCase):
+ def test_second_reference_with_shared_type_vocabulary_is_rejected(self):
+  for text in ['Ley 4/2021 y Decret 3/2020','Ley 4/2021 y Ordre 3/2020','Ley 4/2021 y Resolucio 3/2020','Ley 4/2021 y Decreto legislativo 3/2020']:
+   with self.subTest(text=text):
+    with self.assertRaises(j.JuridicoError) as caught:s.reference(j,text)
+    self.assertEqual(caught.exception.codigo,'REFERENCIA_NORMATIVA_REQUERIDA')
+    self.assertEqual(caught.exception.mensaje,'Consultar una referencia normativa por llamada.')
+ def test_simple_supported_forms_keep_type_number_and_year(self):
+  table=[('Ley 4/2021','ley',4,2021),('Llei 4/2021','ley',4,2021),('Decreto 104/2018','decreto',104,2018),('Decret 104/2018','decreto',104,2018),('Orden 20/2019','orden',20,2019),('Ordre 20/2019','orden',20,2019),('Resolucion 5/2020','resolucion',5,2020),('Resolucio 5/2020','resolucion',5,2020),('Decreto ley 1/2021','decreto ley',1,2021),('Decreto-ley 1/2021','decreto ley',1,2021),('Decreto legislativo 1/2015','decreto legislativo',1,2015)]
+  for text,tipo,numero,ano in table:
+   with self.subTest(text=text):
+    r=s.reference(j,text);self.assertEqual((r['tipo'],r['numero'],r['ano']),(tipo,numero,ano))
+ def test_multiple_spanish_references_and_decree_law_are_still_rejected(self):
+  for text in ['Ley 4/2021 y Decreto 3/2020','Ley 4/2021 y Ley 5/2022','Ley 4/2021 y Decreto ley 3/2020','Ley 4/2021 y Decreto-ley 3/2020']:
+   with self.subTest(text=text):
+    with self.assertRaises(j.JuridicoError) as caught:s.reference(j,text)
+    self.assertEqual(caught.exception.mensaje,'Consultar una referencia normativa por llamada.')
+ def test_context_without_number_and_year_is_not_a_second_reference(self):
+  r=s.reference(j,'Ley 4/2021 sobre el decreto legislativo de 1965')
+  self.assertEqual((r['tipo'],r['numero'],r['ano']),('ley',4,2021))
+  self.assertIn('decreto legislativo de 1965',r['contexto'])
+  with self.assertRaises(j.JuridicoError) as caught:s.reference(j,'Ley 4/2021 sobre el decreto legislativo 1/1965')
+  self.assertEqual(caught.exception.mensaje,'Consultar una referencia normativa por llamada.')
 class Dogv(unittest.TestCase):
  def call(self,text,fn,**kw):
   with patch.object(j,'dogv_search_metadata',side_effect=verify),patch.object(j,'dogv_buscar',side_effect=fn):return s.dogv_locate(j,text,'es',0,10,'','',False,**kw)
@@ -36,6 +59,17 @@ class Dogv(unittest.TestCase):
   self.assertEqual(s.classify(ref,row(1,'Anuncio sobre Ley 4/2021'))[0],'mencion_documental')
   kind,evidence=s.classify(ref,row(2,'DECRETO 2/2023, por el que se modifica la Ley 4/2021'))
   self.assertEqual(kind,'disposicion_relacionada');self.assertEqual(evidence['fuente'],'titulo_oficial')
+ def test_decree_law_relations_accept_official_separators_and_language(self):
+  ref=s.reference(j,'Decreto ley 1/2021')
+  for title in ['ORDEN 5/2022, por la que se modifica el Decreto-Ley 1/2021 de medidas',
+                'ORDEN 5/2022, por la que se deroga el Decreto ley 1/2021 de medidas',
+                'ORDEN 5/2022, por la que se modifica el Decret-llei 1/2021 de mesures']:
+   with self.subTest(title=title):
+    kind,evidence=s.classify(ref,{'titulo':title})
+    self.assertEqual(kind,'disposicion_relacionada')
+    self.assertEqual(evidence['fuente'],'titulo_oficial')
+  self.assertEqual(s.classify(ref,{'titulo':'ORDEN 5/2022, por la que se modifica el Decreto-Ley 11/2021'})[0],'mencion_documental')
+  self.assertEqual(s.classify(ref,{'titulo':'Anuncio sobre el Decreto-Ley 1/2021'})[0],'mencion_documental')
  def test_exact_prefix_is_not_enough_to_verify_identity(self):
   with patch.object(j,'dogv_buscar',return_value=result([row(1,'LEY 4/2021, ejemplo')])),patch.object(j,'dogv_search_metadata',side_effect=j.JuridicoError('IDENTIDAD_NO_VERIFICADA','prueba')):
    d=s.dogv_locate(j,'Ley 4/2021','es',0,10,'','',False,max_paginas=1)['datos']
@@ -87,6 +121,24 @@ class TS(unittest.TestCase):
   with patch.object(j,'_ts_buscar_page',side_effect=[self.reply([],0),self.reply([self.item(1,'silla ergonómica en teletrabajo')])]) as op:
    r=j.ts_buscar('Obligación de entregar silla ergonómica a teletrabajadores')
   self.assertEqual(op.call_count,2);self.assertEqual(op.call_args.args[0],'"silla ergonomica"');self.assertEqual(r['datos']['resoluciones'][0]['estado_relevancia'],'candidata_no_examinada');self.assertFalse(r['datos']['identificacion_verificada'])
+ def test_aggregate_total_is_unknown_when_alternative_returns_results(self):
+  with patch.object(j,'_ts_buscar_page',side_effect=[self.reply([],0),self.reply([self.item(1,'silla ergonomica')],1)]):
+   d=j.ts_buscar('silla ergonómica',limite=1)['datos']
+  self.assertIsNone(d['total_fuente'])
+  self.assertEqual(len(d['resoluciones']),1)
+  self.assertEqual([x['total_fuente'] for x in d['traza_busqueda']],[0,1])
+  self.assertFalse(d['recuperacion_completa'])
+  self.assertIsNone(d['siguiente_inicio'])
+  self.assertEqual(d['continuaciones'],[])
+ def test_alternative_continuation_retains_its_query_and_offset(self):
+  rows=[self.item(i,'silla ergonomica') for i in range(10)]
+  with patch.object(j,'_ts_buscar_page',side_effect=[self.reply([],0),self.reply(rows,25)]):
+   d=j.ts_buscar('silla ergonómica',limite=2)['datos']
+  self.assertIsNone(d['total_fuente'])
+  self.assertIsNone(d['siguiente_inicio'])
+  self.assertEqual(len(d['continuaciones']),1)
+  self.assertEqual(d['continuaciones'][0]['consulta'],'"silla ergonomica"')
+  self.assertEqual(d['continuaciones'][0]['inicio'],10)
  def test_J03_phrase_retains_legal_construction(self):self.assertEqual(s.ts_phrases('Plazo de aprobación de facturas e intereses de demora')[0],'plazo de aprobacion')
  def test_J02_official_summary_rank_and_document_type(self):
   rows=[self.item(1,'videovigilancia sustracción titanio'),self.item(2,'videovigilancia de trabajadora en caja de comercio'),self.item(3,'videovigilancia caja','ATS')]

@@ -19,14 +19,20 @@ def stem(w):
  for prefix in ['educ','inclu','ensen','deport']:
   if w.startswith(prefix):return prefix
  return w[:7]
-KINDS={'ley':('ley','(?:ley|llei)'), 'llei':('ley','(?:ley|llei)'), 'decreto':('decreto','(?:decreto|decret)'), 'decret':('decreto','(?:decreto|decret)'), 'orden':('orden','(?:orden|ordre)'), 'ordre':('orden','(?:orden|ordre)'), 'resolucion':('resolucion','(?:resolucion|resolucio)'), 'resolucio':('resolucion','(?:resolucion|resolucio)'), 'decreto ley':('decreto ley','decret[oa][ -]l(?:ey|lei)'), 'decreto legislativo':('decreto legislativo','decreto legislativo')}
+KINDS={'ley':('ley','(?:ley|llei)'), 'llei':('ley','(?:ley|llei)'), 'decreto':('decreto','(?:decreto|decret)'), 'decret':('decreto','(?:decreto|decret)'), 'orden':('orden','(?:orden|ordre)'), 'ordre':('orden','(?:orden|ordre)'), 'resolucion':('resolucion','(?:resolucion|resolucio)'), 'resolucio':('resolucion','(?:resolucion|resolucio)'), 'decreto ley':('decreto ley','(?:decreto[ -]ley|decret[ -]llei)'), 'decreto legislativo':('decreto legislativo','decreto legislativo')}
+# Vocabulario del tipo normativo compartido por el parser y el guard; formas compuestas primero.
+TYPE_FORMS=('decreto[ -]ley','decreto legislativo','decreto','decret','ley','llei','orden','ordre','resolucion','resolucio')
+# Variante valenciana ya rechazada como segunda referencia; no se admite como referencia inicial.
+EXTRA_GUARD_FORMS=('decret[ -]llei',)
+TYPE_PATTERN='(?:'+'|'.join(TYPE_FORMS)+')'
+GUARD_TYPE_PATTERN='(?:'+'|'.join(EXTRA_GUARD_FORMS+TYPE_FORMS)+')'
 
 def reference(core,text):
  text=norm(text)
- m=re.fullmatch(r'\s*(?:(?:busca|buscar|localiza|localizar|encuentra|recupera)\s+(?:(?:la|el)\s+)?)?(decreto[ -]ley|decreto legislativo|decreto|decret|ley|llei|orden|ordre|resolucion|resolucio)\s+(?:n[.º°o]*\s*)?(\d{1,6})\s*/\s*(\d{4})(?=$|[\s,.;:])(.*)',text)
+ m=re.fullmatch(r'\s*(?:(?:busca|buscar|localiza|localizar|encuentra|recupera)\s+(?:(?:la|el)\s+)?)?('+TYPE_PATTERN+r')\s+(?:n[.º°o]*\s*)?(\d{1,6})\s*/\s*(\d{4})(?=$|[\s,.;:])(.*)',text)
  if not m:raise core.JuridicoError('REFERENCIA_NORMATIVA_REQUERIDA','Indicar tipo y número/año; puede añadirse materia u organismo. Ejemplo: Ley 4/2021 de función pública valenciana.')
  # Varias referencias en una consulta no se interpretan como una sola norma.
- if re.search(r'\b(?:ley|llei|decreto|orden|resolucion)\s+\d+/\d{4}',m[4]):raise core.JuridicoError('REFERENCIA_NORMATIVA_REQUERIDA','Consultar una referencia normativa por llamada.')
+ if re.search(r'\b'+GUARD_TYPE_PATTERN+r'\s+\d+/\d{4}',m[4]):raise core.JuridicoError('REFERENCIA_NORMATIVA_REQUERIDA','Consultar una referencia normativa por llamada.')
  kind,pattern=KINDS[m[1].replace('-',' ')]
  return {'tipo':kind,'numero':int(m[2]),'ano':int(m[3]),'contexto':m[4].strip(' ,.;:'),'terminos':tokens(m[4]),'consulta_base':kind.capitalize()+' '+str(int(m[2]))+'/'+m[3], 'pattern':r'^\s*'+pattern+r'\s+0*'+str(int(m[2]))+r'/'+m[3]+r'(?=\s|[,.;:]|$)'}
 
@@ -39,7 +45,7 @@ def classify(ref,item):
  title=norm(item.get('titulo') or '')
  if re.search(ref['pattern'],title):return 'disposicion_exacta',None
  # Relación solo si el título conecta expresamente el verbo con esa referencia.
- target=re.escape(norm(ref['consulta_base'])).replace(r'\ ',r'\s+')
+ target=ref['pattern'].removeprefix(r'^\s*')
  rel=re.search(r'\b(modifica(?:cion)?|desarrolla|deroga|correccion de errores)\b[^.;:]{0,75}\b'+target+r'(?=\s|[,.;:]|$)',title)
  if rel:return 'disposicion_relacionada',{'declaracion':rel[0],'fuente':'titulo_oficial','alcance':'Relación expresada en título; no se determinan automáticamente efectos jurídicos.'}
  return 'mencion_documental',None
@@ -243,6 +249,10 @@ def ts_search(core,consulta,limite,inicio,sala,desde,hasta,ecli,roj,ponente,recu
    d['siguiente_inicio']=None
    d['continuaciones']=[]
    first['advertencia']+=' Detener las consultas automatizadas a CENDOJ ante esta restricción.'
- if len(responses)>1:first['sha256_fuente']=None;first['nota_procedencia']='Agregado: huellas de páginas oficiales en traza_busqueda.'
+ if len(responses)>1:
+  d['total_fuente']=None
+  d['total_fuente_consulta_inicial']=total
+  d['nota_total_fuente']='Total agregado desconocido: las consultas pueden solaparse. Totales individuales en traza_busqueda; seguir continuaciones por consulta.'
+  first['sha256_fuente']=None;first['nota_procedencia']='Agregado: huellas de páginas oficiales en traza_busqueda.'
  first['advertencia']+=' CANDIDATAS: el resumen no acredita doctrina aplicable; examinar PDF antes de responder el fondo jurídico.'
  return first

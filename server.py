@@ -122,7 +122,7 @@ def ts_resolucion(url: str, inicio: int = 0, max_caracteres: int = 16000) -> Too
 
 @mcp.tool(annotations=READ)
 def juridico_buscar(fuente: str, consulta: str, fecha: str = "", inicio: int = 0, limite: int = 10) -> ToolResult:
-    """Búsqueda unificada: BOE (consolidada), DOGV (índice global), TS (base pública filtrada al Supremo). fecha restringe DOGV/TS a un día. Consultas puntuales y paginación acotada; respetar alcance y condiciones de cada fuente."""
+    """Búsqueda unificada: BOE (consolidada), DOGV (índice global), TS (base pública filtrada al Supremo). fecha restringe DOGV/TS a un día; BOE la rechaza (usar boe_buscar para filtros de actualización). Consultas puntuales y paginación acotada; respetar alcance y condiciones de cada fuente."""
     return call(core.juridico_buscar, fuente, consulta, fecha, inicio, limite)
 
 

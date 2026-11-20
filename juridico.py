@@ -344,6 +344,8 @@ def json_response(r):
     except (ValueError, UnicodeError):
         raise JuridicoError("FORMATO_INESPERADO", "La fuente no devolvió JSON válido.", url=r["url"]) from None
     if isinstance(data, dict) and "status" in data:
+        if not isinstance(data["status"], dict):
+            raise JuridicoError("FORMATO_INESPERADO", "El estado de la fuente no es un objeto JSON.", url=r["url"])
         code = str(data["status"].get("code", "200"))
         if code != "200":
             raise JuridicoError("ERROR_FUENTE", f"La fuente indica código {code}.", url=r["url"])
@@ -1493,6 +1495,8 @@ def ts_resolucion(url, inicio=0, max_caracteres=16000):
 def juridico_buscar(fuente, consulta, fecha="", inicio=0, limite=10):
     fuente = valid_text(fuente, "fuente", 10).upper()
     if fuente == "BOE":
+        if fecha:
+            raise JuridicoError("PARAMETRO_NO_ADMITIDO", "fecha solo restringe la búsqueda unificada DOGV/TS. Para BOE usar boe_buscar con desde/hasta, que filtran última actualización, no publicación.")
         return boe_buscar(consulta, limite, inicio)
     if fuente == "DOGV":
         return dogv_buscar(consulta, fecha, inicio=inicio, limite=limite)
